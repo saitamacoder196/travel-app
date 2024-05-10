@@ -1,0 +1,164 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+main {
+    width: 80%;
+    max-width: 800px;
+    padding-bottom: 60px;
+}
+
+#addTripBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#tripForm {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tripForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#tripForm input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#saveTripBtn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tripCard {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tripCard img {
+    max-width: 100%;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tripCard h2 {
+    margin: 10px 0;
+}
+
+.tripCard p {
+    margin: 5px 0;
+}
+
+.tripCard button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px; 
+    background-color: #333;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    z-index: 1000;
+}
+
+
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    color: #c7d5e0;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Styles for the Remove Trip button */
+.removeTripBtn {
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.removeTripBtn:hover {
+    background-color: #cc0000;
+}
+
+.removeTripBtn:active {
+    transform: translateY(2px);
+}
+
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    border-radius: 5px;
+    z-index: 1000;
+}

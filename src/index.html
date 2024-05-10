@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Planner</title>
+</head>
+<body>
+    <header>
+        <h1>Travel Planner</h1>
+    </header>
+    <main>
+        <button id="addTripBtn">Add Trip</button>
+        <form id="tripForm" style="display: none;">
+            <label>
+                My trip to:
+                <input type="text" id="location" placeholder="Enter location">
+            </label>
+            <br>
+            <label>
+                Departing:
+                <input type="date" id="departing" placeholder="MM/DD/YYYY">
+            </label>
+            <br>
+            <button type="button" id="saveTripBtn">Save Trip</button>
+        </form>
+
+        <div id="tripCardsContainer"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Travel Planner, Inc. All rights reserved.</p>
+        <p>Contact Us: <a href="mailto:info@travelplanner.com">info@travelplanner.com</a></p>
+    </footer>
+    <div id="loader" style="display: none;">Loading...</div>
+</body>
+</html>
