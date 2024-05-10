@@ -17,7 +17,7 @@ describe('DOM Manipulations', () => {
 
 
     it('toggles form display on button click', () => {
-        require('../src/assets/js/scripts.js');
+        require('../src/client/assets/js/app.js');
         const addButton = document.getElementById('addTripBtn');
         const form = document.getElementById('tripForm');
         expect(form.style.display).toBe('none');
@@ -32,7 +32,7 @@ describe('DOM Manipulations', () => {
 describe('calculateDaysRemaining', () => {
 
     it('returns positive number of days when the departing date is in the future', () => {
-        const { calculateDaysRemaining } = require('../src/assets/js/scripts.js'); // Adjust the path to where scripts.js is located
+        const { calculateDaysRemaining } = require('../src/client/assets/js/app.js'); // Adjust the path to where app.js is located
         const today = new Date();
         const departing = new Date();
         departing.setDate(today.getDate() + 10); // Set departing date 10 days in the future
@@ -43,7 +43,7 @@ describe('calculateDaysRemaining', () => {
     });
 
     it('returns 0 when the departing date is today', () => {
-        const { calculateDaysRemaining } = require('../src/assets/js/scripts.js'); // Adjust the path to where scripts.js is located
+        const { calculateDaysRemaining } = require('../src/client/assets/js/app.js'); // Adjust the path to where app.js is located
         const today = new Date();
         const departing = new Date();
 
@@ -53,7 +53,7 @@ describe('calculateDaysRemaining', () => {
     });
 
     it('returns negative number of days when the departing date is in the past', () => {
-        const { calculateDaysRemaining } = require('../src/assets/js/scripts.js'); // Adjust the path to where scripts.js is located
+        const { calculateDaysRemaining } = require('../src/client/assets/js/app.js'); // Adjust the path to where app.js is located
         const today = new Date();
         const departing = new Date();
         departing.setDate(today.getDate() - 10); // Set departing date 10 days in the past
@@ -67,7 +67,7 @@ describe('calculateDaysRemaining', () => {
 
 describe('createTripCard', () => {
     it('creates a card with the correct data', () => {
-        const { createTripCard } = require('../src/assets/js/scripts.js');
+        const { createTripCard } = require('../src/client/assets/js/app.js');
         const imageURL = 'https://example.com/image.jpg';
         const location = 'Paris';
         const departing = '2024-06-15';
@@ -104,7 +104,7 @@ describe('getWeatherForecast', () => {
     });
 
     it('returns default weather data on failed API call', async () => {
-        const { getWeatherForecast } = require('../src/assets/js/scripts.js');
+        const { getWeatherForecast } = require('../src/client/assets/js/app.js');
         const destination = 'New York';
         const date = '2024-06-15';
         axios.post.mockRejectedValue(new Error('Network Error'));
@@ -121,7 +121,7 @@ describe('getWeatherForecast', () => {
 
 describe('saveTripToServer', () => {
     it('returns the trip card ID on successful save', async () => {
-        const { saveTripToServer } = require('../src/assets/js/scripts.js');
+        const { saveTripToServer } = require('../src/client/assets/js/app.js');
         const tripCardData = { location: 'Paris', departing: '2024-06-15' };
         const response = { data: { tripCardId: 123 } };
         axios.post.mockResolvedValue(response);
@@ -132,7 +132,7 @@ describe('saveTripToServer', () => {
     });
 
     it('returns undefined on failed save', async () => {
-        const { saveTripToServer } = require('../src/assets/js/scripts.js');
+        const { saveTripToServer } = require('../src/client/assets/js/app.js');
         const tripCardData = { location: 'Paris', departing: '2024-06-15' };
         axios.post.mockRejectedValue(new Error('Server Error'));
 
@@ -153,7 +153,7 @@ describe('deleteTripCard', () => {
     });
 
     it('removes the card from the DOM on successful delete', async () => {
-        const { deleteTripCard } = require('../src/assets/js/scripts.js');
+        const { deleteTripCard } = require('../src/client/assets/js/app.js');
         axios.delete.mockResolvedValue({ status: 200 });
 
         await deleteTripCard(1);
@@ -163,7 +163,7 @@ describe('deleteTripCard', () => {
     });
 
     it('does not remove the card if the delete fails', async () => {
-        const { deleteTripCard } = require('../src/assets/js/scripts.js');
+        const { deleteTripCard } = require('../src/client/assets/js/app.js');
         axios.delete.mockRejectedValue(new Error('Server Error'));
 
         await deleteTripCard(1);
@@ -175,12 +175,12 @@ describe('deleteTripCard', () => {
 
 describe('loadTripCards', () => {
     beforeEach(() => {
-        document.body.innerHTML = '<div id="tripCardsContainer"></div>'+
-        '<div id="loader" style="display: none;">Loading...</div>';
+        document.body.innerHTML = '<div id="tripCardsContainer"></div>' +
+            '<div id="loader" style="display: none;">Loading...</div>';
     });
 
     it('loads and displays the trip cards correctly', async () => {
-        const { loadTripCards } = require('../src/assets/js/scripts.js');
+        const { loadTripCards } = require('../src/client/assets/js/app.js');
         const response = {
             data: [
                 {

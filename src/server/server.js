@@ -1,6 +1,6 @@
 // Load environment variables
 require('dotenv').config();
-const moment = require('moment'); 
+const moment = require('moment');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -38,7 +38,7 @@ apiRouter.get('/get-image-url', async (req, res) => {
     }
 
     const pixabayUrl = `${PIXABAY_BASE_URL}/?key=${PIXABAY_API_KEY}&q=${encodeURIComponent(searchTerm)}&image_type=photo`;
-    
+
     try {
         const response = await axios.get(pixabayUrl);
         if (response.data.hits.length > 0) {

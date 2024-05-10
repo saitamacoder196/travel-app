@@ -6,7 +6,7 @@ const baseUrl = 'http://localhost:8000/api';
 // Toggle the visibility of the form when "Add Trip" is clicked
 const addButton = document.getElementById('addTripBtn');
 if (addButton) {
-    addButton.addEventListener('click', function() {
+    addButton.addEventListener('click', function () {
         const form = document.getElementById('tripForm');
         if (form) {
             form.style.display = form.style.display === 'none' ? 'block' : 'none';
@@ -40,7 +40,7 @@ function createTripCard(imageURL, location, departing, flightInfo, weatherData, 
     `;
 
     const removeTripBtn = tripCard.querySelector('.removeTripBtn');
-    removeTripBtn.addEventListener('click', function() {
+    removeTripBtn.addEventListener('click', function () {
         deleteTripCard(id);
     });
 
@@ -100,7 +100,7 @@ async function saveTripToServer(tripCardData) {
 }
 
 // Handle trip card creation
-document.getElementById('saveTripBtn').addEventListener('click', async function() {
+document.getElementById('saveTripBtn').addEventListener('click', async function () {
     const location = document.getElementById('location').value;
     const departing = document.getElementById('departing').value;
 
@@ -128,17 +128,17 @@ document.getElementById('saveTripBtn').addEventListener('click', async function(
 
         const flightInfo = 'ORD 3.00PM Flight 22 UDACITY AIR';
 
-         // Fetch the weather forecast data
-         const weatherData = await getWeatherForecast(location, departing);
+        // Fetch the weather forecast data
+        const weatherData = await getWeatherForecast(location, departing);
 
         // Save the trip to the server
         const tripCardData = { imageURL, location, departing, flightInfo, weatherData };
         const tripCardId = await saveTripToServer(tripCardData);
-       
-    
+
+
         const tripCard = createTripCard(imageURL, location, departing, flightInfo, weatherData, tripCardId);
         document.getElementById('tripCardsContainer').appendChild(tripCard);
-    
+
         // Clear form inputs and hide the form
         document.getElementById('location').value = '';
         document.getElementById('departing').value = '';
@@ -194,13 +194,13 @@ function calculateDaysRemaining(departingDate) {
     return Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadTripCards();
 });
 
 // Export the function
-module.exports = { 
-    calculateDaysRemaining, 
+module.exports = {
+    calculateDaysRemaining,
     createTripCard,
     getWeatherForecast,
     deleteTripCard,

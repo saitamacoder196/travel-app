@@ -21,7 +21,7 @@ Travel Planner is a simple web application designed to help users create, store,
 1. **Clone the Project**
 
    ```bash
-   git clone https://github.com/yourusername/travel-app.git
+   git clone https://github.com/saitamacoder196/travel-app.git
    ```
 
 2. **Install Dependencies**
